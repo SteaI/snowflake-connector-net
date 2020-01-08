@@ -2,93 +2,88 @@
  * Copyright (c) 2012-2019 Snowflake Computing Inc. All rights reserved.
  */
 
-using log4net;
+// using log4net;
+// using System;
+
 using System;
 
 namespace Snowflake.Data.Log
 {
     class Log4netImpl : SFLogger
     {
-        private readonly ILog logger;
+        public bool IsDebugEnabled() => false;
 
-        public Log4netImpl(ILog logger)
-        {
-            this.logger = logger;
-        }
+        public bool IsInfoEnabled() => false;
 
-        public bool IsDebugEnabled()
-        {
-            return logger.IsDebugEnabled;
-        }
+        public bool IsWarnEnabled() => false;
 
-        public bool IsInfoEnabled()
-        {
-            return logger.IsInfoEnabled;
-        }
+        public bool IsErrorEnabled() => false;
 
-        public bool IsWarnEnabled()
-        {
-            return logger.IsWarnEnabled;
-        }
-
-        public bool IsErrorEnabled()
-        {
-            return logger.IsErrorEnabled;
-        }
-
-        public bool IsFatalEnabled()
-        {
-            return logger.IsFatalEnabled;
-        }
+        public bool IsFatalEnabled() => false;
 
         public void Debug(string msg, Exception ex = null)
         {
-            logger.Debug(msg, ex);
+            Console.WriteLine(msg);
+            
+            if (ex != null)
+                Console.WriteLine(ex);
         }
 
         public void DebugFmt(string fmt, params object[] args)
         {
-            logger.DebugFormat(fmt, args);
+            Console.WriteLine(fmt, args);
         }
 
         public void Info(string msg, Exception ex = null)
         {
-            logger.Info(msg, ex);
+            Console.WriteLine(msg);
+            
+            if (ex != null)
+                Console.WriteLine(ex);
         }
 
         public void InfoFmt(string fmt, params object[] args)
         {
-            logger.InfoFormat(fmt, args);
+            Console.WriteLine(fmt, args);
         }
 
         public void Warn(string msg, Exception ex = null)
         {
-            logger.Warn(msg, ex);
+            Console.WriteLine(msg);
+            
+            if (ex != null)
+                Console.WriteLine(ex);
         }
 
         public void WarnFmt(string fmt, params object[] args)
         {
-            logger.WarnFormat(fmt, args);
+            Console.WriteLine(fmt, args);
         }
 
         public void Error(string msg, Exception ex = null)
         {
-            logger.Error(msg, ex);
+            Console.WriteLine(msg);
+            
+            if (ex != null)
+                Console.WriteLine(ex);
         }
 
         public void ErrorFmt(string fmt, params object[] args)
         {
-            logger.InfoFormat(fmt, args);
+            Console.WriteLine(fmt, args);
         }
 
         public void Fatal(string msg, Exception ex = null)
         {
-            logger.Fatal(msg, ex);
+            Console.WriteLine(msg);
+            
+            if (ex != null)
+                Console.WriteLine(ex);
         }
 
         public void FatalFmt(string fmt, params object[] args)
         {
-            logger.InfoFormat(fmt, args);
+            Console.WriteLine(fmt, args);
         }
     }
 }

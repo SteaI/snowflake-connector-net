@@ -76,16 +76,6 @@ namespace Snowflake.Data.Tests
         [OneTimeSetUp]
         public void SFTestSetup()
         {
-#if NET46
-            log4net.GlobalContext.Properties["framework"] = "net46";
-            log4net.Config.XmlConfigurator.Configure();
-
-#else
-            log4net.GlobalContext.Properties["framework"] = "netcoreapp2.0";
-            var logRepository = log4net.LogManager.GetRepository(Assembly.GetEntryAssembly());
-            log4net.Config.XmlConfigurator.Configure(logRepository, new FileInfo("App.config"));
-#endif
-
             var reader = new StreamReader("parameters.json");
             var testConfigString = reader.ReadToEnd();
            
